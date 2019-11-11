@@ -156,7 +156,8 @@ NAN_METHOD(mouseClick)
 
 	if (info.Length() == 2)
 	{
-		doubleC = info[1]->BooleanValue(Nan::GetCurrentContext()).FromJust();
+		//doubleC = info[1]->BooleanValue(Nan::GetCurrentContext()).FromJust();
+		doubleC = Nan::To<bool>(info[1]).FromJust(); //for Electron v6 (NODE_MODULE_VERSION 73)
 	}
 	else if (info.Length() > 2)
 	{
